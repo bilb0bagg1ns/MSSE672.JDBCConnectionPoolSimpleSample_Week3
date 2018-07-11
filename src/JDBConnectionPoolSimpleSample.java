@@ -73,7 +73,7 @@ public class JDBConnectionPoolSimpleSample {
     System.out.println("-Creating Connection Pool");
     try {
       cpds = new ComboPooledDataSource();
-      cpds.setDriverClass("com.mysql.jdbc.Driver"); //loads driver
+      cpds.setDriverClass("com.mysql.cj.jdbc.Driver"); //loads driver
       cpds.setJdbcUrl("jdbc:mysql://localhost:3306/mysql");
       cpds.setUser("root");
       cpds.setPassword("root");
@@ -198,3 +198,23 @@ public class JDBConnectionPoolSimpleSample {
   }//end main
 
 }//end JDBConnectionPoolSimpleSample
+
+
+
+/*-
+
+Output:
+
+-Creating Connection Pool
+-Connection Pool creation completed
+Jul 11, 2018 9:54:38 AM com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource getPoolManager
+INFO: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 2s77yk9w12ayi3c1ut62dg|726f3b58, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.cj.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 2s77yk9w12ayi3c1ut62dg|726f3b58, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/mysql, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 10, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+
+Result set returned: 
+Host: localhost
+User: mysql.sys
+Host: localhost
+User: root
+-Shutting down application
+Destroying datasource
+*/
